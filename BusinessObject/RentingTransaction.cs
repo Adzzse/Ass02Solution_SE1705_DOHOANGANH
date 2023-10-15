@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace BusinessObject
 {
-    internal class RentingTransaction
+    public class RentingTransaction
     {
+        public int RentingTransationID { get; set; }
+        public DateTime? RentingDate { get; set; }
+        public decimal? TotalPrice { get; set; }
+        public int CustomerID { get; set; }
+        public byte? RentingStatus { get; set; }
     }
 }

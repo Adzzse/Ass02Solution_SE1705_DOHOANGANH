@@ -39,14 +39,11 @@ namespace CarRentingManagementWinApp_DOHOANGANH
 
             txtCustomerID.Enabled = false;
             txtCustomerName.Enabled = false;
-            txtShortDescription.Enabled = false;
-            txtCustomerType.Enabled = false;
-            txtProducer.Enabled = false;
-            txtDuration.Enabled = false;
-            txtActors.Enabled = false;
-            txtDirector.Enabled = false;
-            txtCountry.Enabled = false;
-            txtLaunchDate.Enabled = false;
+            txtTelephone.Enabled = false;
+
+            txtBirthday.Enabled = false;
+            txtEmail.Enabled = false;
+            txtStatus.Enabled = false;
 
             btnNew.Enabled = false;
             dgvCustomerList.Enabled = false;
@@ -75,15 +72,15 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             }
             return customer;
         }
-        
+
         private void LoadFullList()
         {
             search = false;
             filter = false;
             var customers = customerRepository.GetCustomersList();
             var customerList = from customer in customers
-                              orderby customer.CustomerName descending
-                              select customer;
+                               orderby customer.CustomerName descending
+                               select customer;
             dataSource = customerList;
             searchResult = customerList;
             filterResult = customerList;
@@ -151,13 +148,13 @@ namespace CarRentingManagementWinApp_DOHOANGANH
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
         private void cboCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtCustomerID_TextChanged(object sender, EventArgs e)
@@ -176,6 +173,16 @@ namespace CarRentingManagementWinApp_DOHOANGANH
         }
 
         private void grSearch_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbShortDescription_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioByProducer_CheckedChanged(object sender, EventArgs e)
         {
 
         }

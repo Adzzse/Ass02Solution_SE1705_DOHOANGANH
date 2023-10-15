@@ -33,44 +33,32 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             txtCustomerID = new System.Windows.Forms.TextBox();
             lbCustomerName = new System.Windows.Forms.Label();
             txtCustomerName = new System.Windows.Forms.TextBox();
-            lbShortDescription = new System.Windows.Forms.Label();
-            txtShortDescription = new System.Windows.Forms.TextBox();
-            lbActors = new System.Windows.Forms.Label();
-            txtActors = new System.Windows.Forms.TextBox();
-            lbCountry = new System.Windows.Forms.Label();
-            txtCountry = new System.Windows.Forms.TextBox();
+            lbTelephone = new System.Windows.Forms.Label();
+            txtTelephone = new System.Windows.Forms.TextBox();
+            lbBirthday = new System.Windows.Forms.Label();
+            txtBirthday = new System.Windows.Forms.TextBox();
+            lbStatus = new System.Windows.Forms.Label();
+            txtStatus = new System.Windows.Forms.TextBox();
             btnLoad = new System.Windows.Forms.Button();
             btnNew = new System.Windows.Forms.Button();
             btnDelete = new System.Windows.Forms.Button();
             dgvCustomerList = new System.Windows.Forms.DataGridView();
-            lbSearch = new System.Windows.Forms.Label();
-            txtSearchValue = new System.Windows.Forms.TextBox();
-            lbSearchCountry = new System.Windows.Forms.Label();
-            cboCountry = new System.Windows.Forms.ComboBox();
-            btnSearch = new System.Windows.Forms.Button();
-            grSearch = new System.Windows.Forms.GroupBox();
-            radioByActor = new System.Windows.Forms.RadioButton();
-            radioByProducer = new System.Windows.Forms.RadioButton();
-            grFilter = new System.Windows.Forms.GroupBox();
-            txtDuration = new System.Windows.Forms.TextBox();
-            lbDurartion = new System.Windows.Forms.Label();
-            txtProducer = new System.Windows.Forms.TextBox();
-            lbProducer = new System.Windows.Forms.Label();
-            txtCustomerType = new System.Windows.Forms.TextBox();
-            lbCustomerType = new System.Windows.Forms.Label();
-            txtLaunchDate = new System.Windows.Forms.TextBox();
-            lbLaunchDate = new System.Windows.Forms.Label();
-            txtDirector = new System.Windows.Forms.TextBox();
-            lbDirector = new System.Windows.Forms.Label();
             CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             TelePhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             CustomerEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             CustomerBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             CustomerStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            lbSearch = new System.Windows.Forms.Label();
+            txtSearchValue = new System.Windows.Forms.TextBox();
+            btnSearch = new System.Windows.Forms.Button();
+            grSearch = new System.Windows.Forms.GroupBox();
+            radioById = new System.Windows.Forms.RadioButton();
+            radioByProducer = new System.Windows.Forms.RadioButton();
+            txtEmail = new System.Windows.Forms.TextBox();
+            lbEmail = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)dgvCustomerList).BeginInit();
             grSearch.SuspendLayout();
-            grFilter.SuspendLayout();
             SuspendLayout();
             // 
             // lbCustomerID
@@ -107,57 +95,58 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             txtCustomerName.Size = new System.Drawing.Size(184, 23);
             txtCustomerName.TabIndex = 3;
             // 
-            // lbShortDescription
+            // lbTelephone
             // 
-            lbShortDescription.AutoSize = true;
-            lbShortDescription.Location = new System.Drawing.Point(26, 111);
-            lbShortDescription.Name = "lbShortDescription";
-            lbShortDescription.Size = new System.Drawing.Size(67, 15);
-            lbShortDescription.TabIndex = 4;
-            lbShortDescription.Text = "Description";
+            lbTelephone.AutoSize = true;
+            lbTelephone.Location = new System.Drawing.Point(26, 111);
+            lbTelephone.Name = "lbTelephone";
+            lbTelephone.Size = new System.Drawing.Size(61, 15);
+            lbTelephone.TabIndex = 4;
+            lbTelephone.Text = "Telephone";
+            lbTelephone.Click += lbShortDescription_Click;
             // 
-            // txtShortDescription
+            // txtTelephone
             // 
-            txtShortDescription.Location = new System.Drawing.Point(130, 109);
-            txtShortDescription.Name = "txtShortDescription";
-            txtShortDescription.Size = new System.Drawing.Size(184, 23);
-            txtShortDescription.TabIndex = 5;
+            txtTelephone.Location = new System.Drawing.Point(130, 109);
+            txtTelephone.Name = "txtTelephone";
+            txtTelephone.Size = new System.Drawing.Size(184, 23);
+            txtTelephone.TabIndex = 5;
             // 
-            // lbActors
+            // lbBirthday
             // 
-            lbActors.AutoSize = true;
-            lbActors.Location = new System.Drawing.Point(380, 71);
-            lbActors.Name = "lbActors";
-            lbActors.Size = new System.Drawing.Size(41, 15);
-            lbActors.TabIndex = 8;
-            lbActors.Text = "Actors";
+            lbBirthday.AutoSize = true;
+            lbBirthday.Location = new System.Drawing.Point(380, 71);
+            lbBirthday.Name = "lbBirthday";
+            lbBirthday.Size = new System.Drawing.Size(51, 15);
+            lbBirthday.TabIndex = 8;
+            lbBirthday.Text = "Birthday";
             // 
-            // txtActors
+            // txtBirthday
             // 
-            txtActors.Location = new System.Drawing.Point(446, 68);
-            txtActors.Name = "txtActors";
-            txtActors.Size = new System.Drawing.Size(184, 23);
-            txtActors.TabIndex = 9;
+            txtBirthday.Location = new System.Drawing.Point(446, 68);
+            txtBirthday.Name = "txtBirthday";
+            txtBirthday.Size = new System.Drawing.Size(184, 23);
+            txtBirthday.TabIndex = 9;
             // 
-            // lbCountry
+            // lbStatus
             // 
-            lbCountry.AutoSize = true;
-            lbCountry.Location = new System.Drawing.Point(380, 112);
-            lbCountry.Name = "lbCountry";
-            lbCountry.Size = new System.Drawing.Size(50, 15);
-            lbCountry.TabIndex = 10;
-            lbCountry.Text = "Country";
+            lbStatus.AutoSize = true;
+            lbStatus.Location = new System.Drawing.Point(380, 112);
+            lbStatus.Name = "lbStatus";
+            lbStatus.Size = new System.Drawing.Size(39, 15);
+            lbStatus.TabIndex = 10;
+            lbStatus.Text = "Status";
             // 
-            // txtCountry
+            // txtStatus
             // 
-            txtCountry.Location = new System.Drawing.Point(446, 109);
-            txtCountry.Name = "txtCountry";
-            txtCountry.Size = new System.Drawing.Size(184, 23);
-            txtCountry.TabIndex = 11;
+            txtStatus.Location = new System.Drawing.Point(446, 109);
+            txtStatus.Name = "txtStatus";
+            txtStatus.Size = new System.Drawing.Size(184, 23);
+            txtStatus.TabIndex = 11;
             // 
             // btnLoad
             // 
-            btnLoad.Location = new System.Drawing.Point(61, 148);
+            btnLoad.Location = new System.Drawing.Point(45, 148);
             btnLoad.Name = "btnLoad";
             btnLoad.Size = new System.Drawing.Size(109, 23);
             btnLoad.TabIndex = 12;
@@ -167,7 +156,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             // 
             // btnNew
             // 
-            btnNew.Location = new System.Drawing.Point(290, 149);
+            btnNew.Location = new System.Drawing.Point(274, 149);
             btnNew.Name = "btnNew";
             btnNew.Size = new System.Drawing.Size(109, 23);
             btnNew.TabIndex = 13;
@@ -177,7 +166,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             // 
             // btnDelete
             // 
-            btnDelete.Location = new System.Drawing.Point(521, 149);
+            btnDelete.Location = new System.Drawing.Point(505, 149);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new System.Drawing.Size(109, 23);
             btnDelete.TabIndex = 14;
@@ -195,182 +184,9 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             dgvCustomerList.RowHeadersWidth = 51;
             dgvCustomerList.RowTemplate.Height = 25;
             dgvCustomerList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvCustomerList.Size = new System.Drawing.Size(951, 200);
+            dgvCustomerList.Size = new System.Drawing.Size(604, 200);
             dgvCustomerList.TabIndex = 15;
             dgvCustomerList.CellDoubleClick += dgvCustomerList_CellDoubleClick;
-            // 
-            // lbSearch
-            // 
-            lbSearch.AutoSize = true;
-            lbSearch.Location = new System.Drawing.Point(24, 24);
-            lbSearch.Name = "lbSearch";
-            lbSearch.Size = new System.Drawing.Size(42, 15);
-            lbSearch.TabIndex = 16;
-            lbSearch.Text = "Search";
-            // 
-            // txtSearchValue
-            // 
-            txtSearchValue.Location = new System.Drawing.Point(88, 21);
-            txtSearchValue.Name = "txtSearchValue";
-            txtSearchValue.Size = new System.Drawing.Size(320, 23);
-            txtSearchValue.TabIndex = 17;
-            // 
-            // lbSearchCountry
-            // 
-            lbSearchCountry.AutoSize = true;
-            lbSearchCountry.Location = new System.Drawing.Point(34, 35);
-            lbSearchCountry.Name = "lbSearchCountry";
-            lbSearchCountry.Size = new System.Drawing.Size(50, 15);
-            lbSearchCountry.TabIndex = 18;
-            lbSearchCountry.Text = "Country";
-            // 
-            // cboCountry
-            // 
-            cboCountry.Location = new System.Drawing.Point(101, 33);
-            cboCountry.Name = "cboCountry";
-            cboCountry.Size = new System.Drawing.Size(286, 23);
-            cboCountry.TabIndex = 0;
-            cboCountry.SelectedIndexChanged += cboCountry_SelectedIndexChanged;
-            // 
-            // btnSearch
-            // 
-            btnSearch.Location = new System.Drawing.Point(298, 53);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new System.Drawing.Size(75, 23);
-            btnSearch.TabIndex = 21;
-            btnSearch.Text = "&Search";
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += btnSearch_Click;
-            // 
-            // grSearch
-            // 
-            grSearch.Controls.Add(radioByActor);
-            grSearch.Controls.Add(radioByProducer);
-            grSearch.Controls.Add(txtSearchValue);
-            grSearch.Controls.Add(btnSearch);
-            grSearch.Controls.Add(lbSearch);
-            grSearch.Location = new System.Drawing.Point(25, 191);
-            grSearch.Name = "grSearch";
-            grSearch.Size = new System.Drawing.Size(434, 89);
-            grSearch.TabIndex = 22;
-            grSearch.TabStop = false;
-            grSearch.Text = "Search";
-            grSearch.Enter += grSearch_Enter;
-            // 
-            // radioByActor
-            // 
-            radioByActor.AutoSize = true;
-            radioByActor.Checked = true;
-            radioByActor.Location = new System.Drawing.Point(36, 56);
-            radioByActor.Name = "radioByActor";
-            radioByActor.Size = new System.Drawing.Size(70, 19);
-            radioByActor.TabIndex = 23;
-            radioByActor.TabStop = true;
-            radioByActor.Text = "By Actor";
-            radioByActor.UseVisualStyleBackColor = true;
-            // 
-            // radioByProducer
-            // 
-            radioByProducer.AutoSize = true;
-            radioByProducer.Location = new System.Drawing.Point(142, 56);
-            radioByProducer.Name = "radioByProducer";
-            radioByProducer.Size = new System.Drawing.Size(89, 19);
-            radioByProducer.TabIndex = 22;
-            radioByProducer.TabStop = true;
-            radioByProducer.Text = "By Producer";
-            radioByProducer.UseVisualStyleBackColor = true;
-            // 
-            // grFilter
-            // 
-            grFilter.Controls.Add(cboCountry);
-            grFilter.Controls.Add(lbSearchCountry);
-            grFilter.Location = new System.Drawing.Point(543, 196);
-            grFilter.Name = "grFilter";
-            grFilter.Size = new System.Drawing.Size(433, 84);
-            grFilter.TabIndex = 23;
-            grFilter.TabStop = false;
-            grFilter.Text = "Filter";
-            // 
-            // txtDuration
-            // 
-            txtDuration.Location = new System.Drawing.Point(793, 108);
-            txtDuration.Name = "txtDuration";
-            txtDuration.Size = new System.Drawing.Size(184, 23);
-            txtDuration.TabIndex = 29;
-            // 
-            // lbDurartion
-            // 
-            lbDurartion.AutoSize = true;
-            lbDurartion.Location = new System.Drawing.Point(689, 111);
-            lbDurartion.Name = "lbDurartion";
-            lbDurartion.Size = new System.Drawing.Size(53, 15);
-            lbDurartion.TabIndex = 28;
-            lbDurartion.Text = "Duration";
-            // 
-            // txtProducer
-            // 
-            txtProducer.Location = new System.Drawing.Point(793, 68);
-            txtProducer.Name = "txtProducer";
-            txtProducer.Size = new System.Drawing.Size(184, 23);
-            txtProducer.TabIndex = 27;
-            // 
-            // lbProducer
-            // 
-            lbProducer.AutoSize = true;
-            lbProducer.Location = new System.Drawing.Point(689, 70);
-            lbProducer.Name = "lbProducer";
-            lbProducer.Size = new System.Drawing.Size(55, 15);
-            lbProducer.TabIndex = 26;
-            lbProducer.Text = "Producer";
-            // 
-            // txtCustomerType
-            // 
-            txtCustomerType.Location = new System.Drawing.Point(793, 26);
-            txtCustomerType.Name = "txtCustomerType";
-            txtCustomerType.Size = new System.Drawing.Size(184, 23);
-            txtCustomerType.TabIndex = 25;
-            // 
-            // lbCustomerType
-            // 
-            lbCustomerType.AutoSize = true;
-            lbCustomerType.Location = new System.Drawing.Point(689, 29);
-            lbCustomerType.Name = "lbCustomerType";
-            lbCustomerType.Size = new System.Drawing.Size(85, 15);
-            lbCustomerType.TabIndex = 24;
-            lbCustomerType.Text = "Customer type";
-            // 
-            // txtLaunchDate
-            // 
-            txtLaunchDate.Location = new System.Drawing.Point(793, 150);
-            txtLaunchDate.Name = "txtLaunchDate";
-            txtLaunchDate.Size = new System.Drawing.Size(184, 23);
-            txtLaunchDate.TabIndex = 31;
-            // 
-            // lbLaunchDate
-            // 
-            lbLaunchDate.AutoSize = true;
-            lbLaunchDate.Location = new System.Drawing.Point(689, 153);
-            lbLaunchDate.Name = "lbLaunchDate";
-            lbLaunchDate.Size = new System.Drawing.Size(73, 15);
-            lbLaunchDate.TabIndex = 30;
-            lbLaunchDate.Text = "Launch Date";
-            lbLaunchDate.Click += label4_Click;
-            // 
-            // txtDirector
-            // 
-            txtDirector.Location = new System.Drawing.Point(446, 28);
-            txtDirector.Name = "txtDirector";
-            txtDirector.Size = new System.Drawing.Size(184, 23);
-            txtDirector.TabIndex = 33;
-            // 
-            // lbDirector
-            // 
-            lbDirector.AutoSize = true;
-            lbDirector.Location = new System.Drawing.Point(380, 29);
-            lbDirector.Name = "lbDirector";
-            lbDirector.Size = new System.Drawing.Size(49, 15);
-            lbDirector.TabIndex = 32;
-            lbDirector.Text = "Director";
             // 
             // CustomerID
             // 
@@ -409,33 +225,105 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             CustomerStatus.Name = "CustomerStatus";
             CustomerStatus.ReadOnly = true;
             // 
+            // lbSearch
+            // 
+            lbSearch.AutoSize = true;
+            lbSearch.Location = new System.Drawing.Point(20, 24);
+            lbSearch.Name = "lbSearch";
+            lbSearch.Size = new System.Drawing.Size(42, 15);
+            lbSearch.TabIndex = 16;
+            lbSearch.Text = "Search";
+            // 
+            // txtSearchValue
+            // 
+            txtSearchValue.Location = new System.Drawing.Point(68, 21);
+            txtSearchValue.Name = "txtSearchValue";
+            txtSearchValue.Size = new System.Drawing.Size(201, 23);
+            txtSearchValue.TabIndex = 17;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new System.Drawing.Point(194, 48);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new System.Drawing.Size(75, 23);
+            btnSearch.TabIndex = 21;
+            btnSearch.Text = "&Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // grSearch
+            // 
+            grSearch.Controls.Add(radioById);
+            grSearch.Controls.Add(radioByProducer);
+            grSearch.Controls.Add(txtSearchValue);
+            grSearch.Controls.Add(btnSearch);
+            grSearch.Controls.Add(lbSearch);
+            grSearch.Location = new System.Drawing.Point(25, 191);
+            grSearch.Name = "grSearch";
+            grSearch.Size = new System.Drawing.Size(577, 89);
+            grSearch.TabIndex = 22;
+            grSearch.TabStop = false;
+            grSearch.Text = "Search";
+            grSearch.Enter += grSearch_Enter;
+            // 
+            // radioById
+            // 
+            radioById.AutoSize = true;
+            radioById.Checked = true;
+            radioById.Location = new System.Drawing.Point(20, 50);
+            radioById.Name = "radioById";
+            radioById.Size = new System.Drawing.Size(51, 19);
+            radioById.TabIndex = 23;
+            radioById.TabStop = true;
+            radioById.Text = "By Id";
+            radioById.UseVisualStyleBackColor = true;
+            // 
+            // radioByProducer
+            // 
+            radioByProducer.AutoSize = true;
+            radioByProducer.Location = new System.Drawing.Point(96, 50);
+            radioByProducer.Name = "radioByProducer";
+            radioByProducer.Size = new System.Drawing.Size(89, 19);
+            radioByProducer.TabIndex = 22;
+            radioByProducer.TabStop = true;
+            radioByProducer.Text = "By Producer";
+            radioByProducer.UseVisualStyleBackColor = true;
+            radioByProducer.CheckedChanged += radioByProducer_CheckedChanged;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new System.Drawing.Point(446, 28);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new System.Drawing.Size(184, 23);
+            txtEmail.TabIndex = 33;
+            // 
+            // lbEmail
+            // 
+            lbEmail.AutoSize = true;
+            lbEmail.Location = new System.Drawing.Point(380, 29);
+            lbEmail.Name = "lbEmail";
+            lbEmail.Size = new System.Drawing.Size(36, 15);
+            lbEmail.TabIndex = 32;
+            lbEmail.Text = "Email";
+            // 
             // frmCustomerManagement
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1006, 509);
-            Controls.Add(txtDirector);
-            Controls.Add(lbDirector);
-            Controls.Add(txtLaunchDate);
-            Controls.Add(lbLaunchDate);
-            Controls.Add(txtDuration);
-            Controls.Add(lbDurartion);
-            Controls.Add(txtProducer);
-            Controls.Add(lbProducer);
-            Controls.Add(txtCustomerType);
-            Controls.Add(lbCustomerType);
-            Controls.Add(grFilter);
+            ClientSize = new System.Drawing.Size(660, 509);
+            Controls.Add(txtEmail);
+            Controls.Add(lbEmail);
             Controls.Add(grSearch);
             Controls.Add(dgvCustomerList);
             Controls.Add(btnDelete);
             Controls.Add(btnNew);
             Controls.Add(btnLoad);
-            Controls.Add(txtCountry);
-            Controls.Add(lbCountry);
-            Controls.Add(txtActors);
-            Controls.Add(lbActors);
-            Controls.Add(txtShortDescription);
-            Controls.Add(lbShortDescription);
+            Controls.Add(txtStatus);
+            Controls.Add(lbStatus);
+            Controls.Add(txtBirthday);
+            Controls.Add(lbBirthday);
+            Controls.Add(txtTelephone);
+            Controls.Add(lbTelephone);
             Controls.Add(txtCustomerName);
             Controls.Add(lbCustomerName);
             Controls.Add(txtCustomerID);
@@ -447,8 +335,6 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             ((System.ComponentModel.ISupportInitialize)dgvCustomerList).EndInit();
             grSearch.ResumeLayout(false);
             grSearch.PerformLayout();
-            grFilter.ResumeLayout(false);
-            grFilter.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -459,35 +345,24 @@ namespace CarRentingManagementWinApp_DOHOANGANH
         private System.Windows.Forms.TextBox txtCustomerID;
         private System.Windows.Forms.Label lbCustomerName;
         private System.Windows.Forms.TextBox txtCustomerName;
-        private System.Windows.Forms.Label lbShortDescription;
-        private System.Windows.Forms.TextBox txtShortDescription;
-        private System.Windows.Forms.Label lbActors;
-        private System.Windows.Forms.TextBox txtActors;
-        private System.Windows.Forms.Label lbCountry;
-        private System.Windows.Forms.TextBox txtCountry;
+        private System.Windows.Forms.Label lbTelephone;
+        private System.Windows.Forms.TextBox txtTelephone;
+        private System.Windows.Forms.Label lbBirthday;
+        private System.Windows.Forms.TextBox txtBirthday;
+        private System.Windows.Forms.Label lbStatus;
+        private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgvCustomerList;
         private System.Windows.Forms.Label lbSearch;
         private System.Windows.Forms.TextBox txtSearchValue;
-        private System.Windows.Forms.Label lbSearchCountry;
-        private System.Windows.Forms.ComboBox cboCountry;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.GroupBox grSearch;
         private System.Windows.Forms.RadioButton radioByProducer;
-        private System.Windows.Forms.RadioButton radioByActor;
-        private System.Windows.Forms.GroupBox grFilter;
-        private System.Windows.Forms.TextBox txtDuration;
-        private System.Windows.Forms.Label lbDurartion;
-        private System.Windows.Forms.TextBox txtProducer;
-        private System.Windows.Forms.Label lbProducer;
-        private System.Windows.Forms.TextBox txtCustomerType;
-        private System.Windows.Forms.Label lbCustomerType;
-        private System.Windows.Forms.TextBox txtLaunchDate;
-        private System.Windows.Forms.Label lbLaunchDate;
-        private System.Windows.Forms.TextBox txtDirector;
-        private System.Windows.Forms.Label lbDirector;
+        private System.Windows.Forms.RadioButton radioById;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TelePhone;

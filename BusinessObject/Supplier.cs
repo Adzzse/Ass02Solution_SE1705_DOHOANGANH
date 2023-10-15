@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BusinessObject
 {
-    internal class Supplier
+    public class Supplier
     {
+        public int SupplierID { get; set; }
+        public string SupplierName { get; set; }
+        public string SupplierDescription { get; set; }
+        public string SupplierAddress { get; set; }
     }
 }
