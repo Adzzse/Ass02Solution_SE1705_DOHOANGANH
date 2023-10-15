@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -66,16 +67,26 @@ namespace DataAccessObject
             return customers.SingleOrDefault(mb => mb.CustomerName.Equals(ShortDescription));
         }
 
+        public static List<Customer> GetProducts()
+        {
+            var customers = new List<Customer>();
+            try
+            {
+                using var db = new FUCarRentingManagementContext();
+                customers = db.Customers.ToList();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            return customers;
+        }
 
 
 
 
 
 
-
-
-
-        
 
 
         public static CustomerDAO Instance
@@ -126,6 +137,22 @@ namespace DataAccessObject
                 throw new Exception("Customer does not exist!!");
             }
         }
+
+        public static void UpdateProduct(Customer customer)
+        {
+            try
+            {
+                using var db = new MyDbContext();
+                db.Entry<Customer>(customer).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+
         public void Delete(int CustomerId)
         {
             Customer customer = GetCustomer(CustomerId);

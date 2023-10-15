@@ -54,7 +54,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             btnSearch = new System.Windows.Forms.Button();
             grSearch = new System.Windows.Forms.GroupBox();
             radioById = new System.Windows.Forms.RadioButton();
-            radioByProducer = new System.Windows.Forms.RadioButton();
+            radioByCarName = new System.Windows.Forms.RadioButton();
             txtEmail = new System.Windows.Forms.TextBox();
             lbEmail = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)dgvCustomerList).BeginInit();
@@ -254,7 +254,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             // grSearch
             // 
             grSearch.Controls.Add(radioById);
-            grSearch.Controls.Add(radioByProducer);
+            grSearch.Controls.Add(radioByCarName);
             grSearch.Controls.Add(txtSearchValue);
             grSearch.Controls.Add(btnSearch);
             grSearch.Controls.Add(lbSearch);
@@ -278,17 +278,17 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             radioById.Text = "By Id";
             radioById.UseVisualStyleBackColor = true;
             // 
-            // radioByProducer
+            // radioByCarName
             // 
-            radioByProducer.AutoSize = true;
-            radioByProducer.Location = new System.Drawing.Point(96, 50);
-            radioByProducer.Name = "radioByProducer";
-            radioByProducer.Size = new System.Drawing.Size(89, 19);
-            radioByProducer.TabIndex = 22;
-            radioByProducer.TabStop = true;
-            radioByProducer.Text = "By Producer";
-            radioByProducer.UseVisualStyleBackColor = true;
-            radioByProducer.CheckedChanged += radioByProducer_CheckedChanged;
+            radioByCarName.AutoSize = true;
+            radioByCarName.Location = new System.Drawing.Point(96, 50);
+            radioByCarName.Name = "radioByCarName";
+            radioByCarName.Size = new System.Drawing.Size(94, 19);
+            radioByCarName.TabIndex = 22;
+            radioByCarName.TabStop = true;
+            radioByCarName.Text = "By Car Name";
+            radioByCarName.UseVisualStyleBackColor = true;
+            radioByCarName.CheckedChanged += radioByProducer_CheckedChanged;
             // 
             // txtEmail
             // 
@@ -359,7 +359,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
         private System.Windows.Forms.TextBox txtSearchValue;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.GroupBox grSearch;
-        private System.Windows.Forms.RadioButton radioByProducer;
+        private System.Windows.Forms.RadioButton radioByCarName;
         private System.Windows.Forms.RadioButton radioById;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lbEmail;

@@ -51,7 +51,6 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             btnLoad.Enabled = true;
 
             grSearch.Enabled = false;
-            grFilter.Enabled = false;
         }
 
         private Customer GetCustomerInfo()
@@ -92,7 +91,6 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             dgvCustomerList.Enabled = true;
             btnLoad.Enabled = true;
             grSearch.Enabled = true;
-            grFilter.Enabled = true;
             LoadFullList();
         }
 
