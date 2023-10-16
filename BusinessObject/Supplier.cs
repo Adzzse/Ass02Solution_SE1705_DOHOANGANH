@@ -1,16 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+#nullable disable
 
 namespace BusinessObject
 {
-    public class Supplier
+    public partial class Supplier
     {
-        public int SupplierID { get; set; }
+        public Supplier()
+        {
+            CarInformations = new HashSet<CarInformation>();
+        }
+
+        public int SupplierId { get; set; }
         public string SupplierName { get; set; }
         public string SupplierDescription { get; set; }
         public string SupplierAddress { get; set; }
+
+        public virtual ICollection<CarInformation> CarInformations { get; set; }
     }
 }

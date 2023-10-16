@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+#nullable disable
 
 namespace BusinessObject
 {
-    public class RentingDetail
+    public partial class RentingDetail
     {
-        public int RentingTransactionID { get; set; }
-        public int CarID { get; set; }
+        public int RentingTransactionId { get; set; }
+        public int CarId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public decimal? Price { get; set; }
+
+        public virtual CarInformation Car { get; set; }
+        public virtual RentingTransaction RentingTransaction { get; set; }
     }
 }
