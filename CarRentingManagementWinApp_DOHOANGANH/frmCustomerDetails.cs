@@ -30,7 +30,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
                 btnUpdate.Visible = true;
                 txtCustomerID.Enabled = false;
 
-                txtCustomerID.Text = customerInfo.CustomerID.ToString();
+                txtCustomerID.Text = customerInfo.CustomerId.ToString();
                 txtCustomerName.Text = customerInfo.CustomerName;
 
             }
@@ -42,7 +42,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             {
                 Customer customer = new Customer
                 {
-                    CustomerID = customerInfo.CustomerID,
+                    CustomerId = customerInfo.CustomerId,
                     CustomerName = txtCustomerName.Text,
 
                 };
@@ -62,7 +62,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             {
                 Customer customer = new Customer
                 {
-                    CustomerID = int.Parse(txtCustomerID.Text),
+                    CustomerId = int.Parse(txtCustomerID.Text),
                     CustomerName = txtCustomerName.Text,
 
                 };

@@ -25,7 +25,7 @@ namespace DataAccessObject
         {
             new Customer()
             {
-                CustomerID = 1,
+                CustomerId = 1,
                 CustomerName=""
             }
         };
@@ -47,7 +47,7 @@ namespace DataAccessObject
                 // Login successful, create and return a Customer object
                 return new Customer
                 {
-                    CustomerID = 1,
+                    CustomerId = 1,
                     CustomerName = "Admin"
                 };
             }
@@ -58,9 +58,9 @@ namespace DataAccessObject
 
 
         // GetCustomer
-        public Customer GetCustomer(int CustomerID)
+        public Customer GetCustomer(int CustomerId)
         {
-            return customers.SingleOrDefault(mb => mb.CustomerID == CustomerID);
+            return customers.SingleOrDefault(mb => mb.CustomerId == CustomerId);
         }
         public Customer GetCustomer(string ShortDescription)
         {
@@ -111,7 +111,7 @@ namespace DataAccessObject
                 throw new Exception("Customer is undefined!!");
             }
 
-            if (GetCustomer(customer.CustomerID) == null && GetCustomer(customer.CustomerName) == null)
+            if (GetCustomer(customer.CustomerId) == null && GetCustomer(customer.CustomerName) == null)
             {
                 customers.Add(customer);
             }
@@ -126,7 +126,7 @@ namespace DataAccessObject
             {
                 throw new Exception("Customer is undefined!!");
             }
-            Customer cus = GetCustomer(customer.CustomerID);
+            Customer cus = GetCustomer(customer.CustomerId);
             if (cus != null)
             {
                 var index = customers.IndexOf(cus);
@@ -142,7 +142,7 @@ namespace DataAccessObject
         {
             try
             {
-                using var db = new MyDbContext();
+                using var db = new FUCarRentingManagementContext();
                 db.Entry<Customer>(customer).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 db.SaveChanges();
             }

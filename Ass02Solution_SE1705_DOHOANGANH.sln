@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Data Layer", "3. Data La
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{B585EF85-6273-4A29-AF21-527FD453DB67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRentingManagementWinApp_DOHOANGANH", "CarRentingManagementWinApp_DOHOANGANH\CarRentingManagementWinApp_DOHOANGANH.csproj", "{F202E57B-9318-4E61-A25C-1E05CED97F0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRentingManagementWinApp_DOHOANGANH", "CarRentingManagementWinApp_DOHOANGANH\CarRentingManagementWinApp_DOHOANGANH.csproj", "{F202E57B-9318-4E61-A25C-1E05CED97F0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

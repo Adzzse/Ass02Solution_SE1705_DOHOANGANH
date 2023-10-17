@@ -18,7 +18,6 @@ namespace CarRentingManagementWinApp_DOHOANGANH
         ICustomerRepository customerRepository = new CustomerRepository();
 
         BindingSource source;
-        BindingSource countrySource;
 
         bool search = false;
         bool filter = false;
@@ -28,10 +27,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
 
         IEnumerable<string> countryList;
 
-        public frmCustomerManagement()
-        {
-            InitializeComponent();
-        }
+        public frmCustomerManagement() => InitializeComponent();
 
         private void frmCustomerManagement_Load(object sender, EventArgs e)
         {
@@ -60,7 +56,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             {
                 customer = new Customer
                 {
-                    CustomerID = int.Parse(txtCustomerID.Text),
+                    CustomerId = int.Parse(txtCustomerID.Text),
                     CustomerName = txtCustomerName.Text,
 
                 };
@@ -115,11 +111,11 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             Customer customer = GetCustomerInfo();
 
             if (MessageBox.Show($"Do you really want to delete the customer: \n" +
-            $"Customer ID: {customer.CustomerID}\n" +
+            $"Customer ID: {customer.CustomerId}\n" +
             $"Customer Name: {customer.CustomerName}\n"
             , "Delete customer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                customerRepository.DeleteCustomer(customer.CustomerID);
+                customerRepository.DeleteCustomer(customer.CustomerId);
                 search = false;
                 LoadFullList();
             }
