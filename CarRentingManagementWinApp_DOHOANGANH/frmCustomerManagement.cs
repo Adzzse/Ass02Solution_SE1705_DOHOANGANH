@@ -37,7 +37,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             txtCustomerName.Enabled = false;
             txtTelephone.Enabled = false;
 
-            txtBirthday.Enabled = false;
+            dtpBirthday.Enabled = false;
             txtEmail.Enabled = false;
             txtStatus.Enabled = false;
 

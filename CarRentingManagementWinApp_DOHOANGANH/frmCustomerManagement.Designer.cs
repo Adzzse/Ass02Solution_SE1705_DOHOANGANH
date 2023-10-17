@@ -36,7 +36,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             lbTelephone = new System.Windows.Forms.Label();
             txtTelephone = new System.Windows.Forms.TextBox();
             lbBirthday = new System.Windows.Forms.Label();
-            txtBirthday = new System.Windows.Forms.TextBox();
+            dtpBirthday = new System.Windows.Forms.DateTimePicker();
             lbStatus = new System.Windows.Forms.Label();
             txtStatus = new System.Windows.Forms.TextBox();
             btnLoad = new System.Windows.Forms.Button();
@@ -123,10 +123,10 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             // 
             // txtBirthday
             // 
-            txtBirthday.Location = new System.Drawing.Point(446, 68);
-            txtBirthday.Name = "txtBirthday";
-            txtBirthday.Size = new System.Drawing.Size(184, 23);
-            txtBirthday.TabIndex = 9;
+            dtpBirthday.Location = new System.Drawing.Point(446, 68);
+            dtpBirthday.Name = "dtpBirthday";
+            dtpBirthday.Size = new System.Drawing.Size(184, 23);
+            dtpBirthday.TabIndex = 9;
             // 
             // lbStatus
             // 
@@ -320,7 +320,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             Controls.Add(btnLoad);
             Controls.Add(txtStatus);
             Controls.Add(lbStatus);
-            Controls.Add(txtBirthday);
+            Controls.Add(dtpBirthday);
             Controls.Add(lbBirthday);
             Controls.Add(txtTelephone);
             Controls.Add(lbTelephone);
@@ -348,7 +348,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
         private System.Windows.Forms.Label lbTelephone;
         private System.Windows.Forms.TextBox txtTelephone;
         private System.Windows.Forms.Label lbBirthday;
-        private System.Windows.Forms.TextBox txtBirthday;
+        private System.Windows.Forms.DateTimePicker dtpBirthday;
         private System.Windows.Forms.Label lbStatus;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Button btnLoad;
