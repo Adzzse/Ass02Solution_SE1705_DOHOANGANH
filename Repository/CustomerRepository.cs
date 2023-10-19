@@ -8,17 +8,17 @@ namespace DataAccess.Repository
     {
         public IEnumerable<Customer> GetCustomersList()
         {
-            return CustomerDAO.Instance.GetCustomersList;
+            return CustomerDAO.Instance.GetCustomerList();
         }
         public Customer Login(string Email, string Password)
         {
             return CustomerDAO.Instance.Login(Email, Password);
         }
-        public void AddCustomer(Customer cartoon) => CustomerDAO.Instance.AddCustomer(cartoon);
+        public void SaveCustomer(Customer c) => CustomerDAO.Instance.SaveCustomer(c);
 
-        public void DeleteCustomer(int CustomerID) => CustomerDAO.Instance.Delete(CustomerID);
+        public void DeleteCustomer(Customer CustomerId) => CustomerDAO.Instance.DeleteCustomer(CustomerId);
 
-        public void UpdateCustomer(Customer cartoon) => CustomerDAO.Instance.Update(cartoon);
+        public void UpdateCustomer(Customer customer) => CustomerDAO.Instance.UpdateCustomer(customer);
 
     }
 }

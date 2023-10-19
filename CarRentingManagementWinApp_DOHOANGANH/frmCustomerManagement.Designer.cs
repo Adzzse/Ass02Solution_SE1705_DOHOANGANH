@@ -30,7 +30,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
         private void InitializeComponent()
         {
             lbCustomerID = new System.Windows.Forms.Label();
-            txtCustomerID = new System.Windows.Forms.TextBox();
+            txtCustomerId = new System.Windows.Forms.TextBox();
             lbCustomerName = new System.Windows.Forms.Label();
             txtCustomerName = new System.Windows.Forms.TextBox();
             lbTelephone = new System.Windows.Forms.Label();
@@ -43,12 +43,6 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             btnNew = new System.Windows.Forms.Button();
             btnDelete = new System.Windows.Forms.Button();
             dgvCustomerList = new System.Windows.Forms.DataGridView();
-            CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            TelePhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            CustomerEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            CustomerBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            CustomerStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             lbSearch = new System.Windows.Forms.Label();
             txtSearchValue = new System.Windows.Forms.TextBox();
             btnSearch = new System.Windows.Forms.Button();
@@ -57,6 +51,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             radioByCarName = new System.Windows.Forms.RadioButton();
             txtEmail = new System.Windows.Forms.TextBox();
             lbEmail = new System.Windows.Forms.Label();
+            btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)dgvCustomerList).BeginInit();
             grSearch.SuspendLayout();
             SuspendLayout();
@@ -71,13 +66,13 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             lbCustomerID.Text = "Customer ID";
             lbCustomerID.Click += lbCustomerID_Click;
             // 
-            // txtCustomerID
+            // txtCustomerId
             // 
-            txtCustomerID.Location = new System.Drawing.Point(130, 27);
-            txtCustomerID.Name = "txtCustomerID";
-            txtCustomerID.Size = new System.Drawing.Size(184, 23);
-            txtCustomerID.TabIndex = 1;
-            txtCustomerID.TextChanged += txtCustomerID_TextChanged;
+            txtCustomerId.Location = new System.Drawing.Point(130, 27);
+            txtCustomerId.Name = "txtCustomerId";
+            txtCustomerId.Size = new System.Drawing.Size(184, 23);
+            txtCustomerId.TabIndex = 1;
+            txtCustomerId.TextChanged += txtCustomerID_TextChanged;
             // 
             // lbCustomerName
             // 
@@ -121,7 +116,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             lbBirthday.TabIndex = 8;
             lbBirthday.Text = "Birthday";
             // 
-            // txtBirthday
+            // dtpBirthday
             // 
             dtpBirthday.Location = new System.Drawing.Point(446, 68);
             dtpBirthday.Name = "dtpBirthday";
@@ -156,7 +151,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             // 
             // btnNew
             // 
-            btnNew.Location = new System.Drawing.Point(274, 149);
+            btnNew.Location = new System.Drawing.Point(205, 148);
             btnNew.Name = "btnNew";
             btnNew.Size = new System.Drawing.Size(109, 23);
             btnNew.TabIndex = 13;
@@ -177,7 +172,6 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             // dgvCustomerList
             // 
             dgvCustomerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCustomerList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { CustomerID, CustomerName, TelePhone, CustomerEmail, CustomerBirthday, CustomerStatus });
             dgvCustomerList.Location = new System.Drawing.Point(26, 297);
             dgvCustomerList.Name = "dgvCustomerList";
             dgvCustomerList.ReadOnly = true;
@@ -186,44 +180,6 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             dgvCustomerList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             dgvCustomerList.Size = new System.Drawing.Size(604, 200);
             dgvCustomerList.TabIndex = 15;
-            dgvCustomerList.CellDoubleClick += dgvCustomerList_CellDoubleClick;
-            // 
-            // CustomerID
-            // 
-            CustomerID.HeaderText = "Id";
-            CustomerID.Name = "CustomerID";
-            CustomerID.ReadOnly = true;
-            CustomerID.Width = 30;
-            // 
-            // CustomerName
-            // 
-            CustomerName.HeaderText = "Name";
-            CustomerName.Name = "CustomerName";
-            CustomerName.ReadOnly = true;
-            // 
-            // TelePhone
-            // 
-            TelePhone.HeaderText = "Phone";
-            TelePhone.Name = "TelePhone";
-            TelePhone.ReadOnly = true;
-            // 
-            // CustomerEmail
-            // 
-            CustomerEmail.HeaderText = "Email";
-            CustomerEmail.Name = "CustomerEmail";
-            CustomerEmail.ReadOnly = true;
-            // 
-            // CustomerBirthday
-            // 
-            CustomerBirthday.HeaderText = "Birthday";
-            CustomerBirthday.Name = "CustomerBirthday";
-            CustomerBirthday.ReadOnly = true;
-            // 
-            // CustomerStatus
-            // 
-            CustomerStatus.HeaderText = "Status";
-            CustomerStatus.Name = "CustomerStatus";
-            CustomerStatus.ReadOnly = true;
             // 
             // lbSearch
             // 
@@ -306,11 +262,22 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             lbEmail.TabIndex = 32;
             lbEmail.Text = "Email";
             // 
+            // btnSave
+            // 
+            btnSave.Location = new System.Drawing.Point(361, 149);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new System.Drawing.Size(109, 23);
+            btnSave.TabIndex = 34;
+            btnSave.Text = "&Save";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
+            // 
             // frmCustomerManagement
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(660, 509);
+            Controls.Add(btnSave);
             Controls.Add(txtEmail);
             Controls.Add(lbEmail);
             Controls.Add(grSearch);
@@ -326,7 +293,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
             Controls.Add(lbTelephone);
             Controls.Add(txtCustomerName);
             Controls.Add(lbCustomerName);
-            Controls.Add(txtCustomerID);
+            Controls.Add(txtCustomerId);
             Controls.Add(lbCustomerID);
             Name = "frmCustomerManagement";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -342,7 +309,7 @@ namespace CarRentingManagementWinApp_DOHOANGANH
         #endregion
 
         private System.Windows.Forms.Label lbCustomerID;
-        private System.Windows.Forms.TextBox txtCustomerID;
+        private System.Windows.Forms.TextBox txtCustomerId;
         private System.Windows.Forms.Label lbCustomerName;
         private System.Windows.Forms.TextBox txtCustomerName;
         private System.Windows.Forms.Label lbTelephone;
@@ -363,11 +330,6 @@ namespace CarRentingManagementWinApp_DOHOANGANH
         private System.Windows.Forms.RadioButton radioById;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lbEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TelePhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerBirthday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerStatus;
+        private System.Windows.Forms.Button btnSave;
     }
 }

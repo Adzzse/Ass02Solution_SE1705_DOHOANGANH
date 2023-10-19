@@ -11,8 +11,8 @@ namespace DataAccess.Repository
     {
         public IEnumerable<Customer> GetCustomersList();
         public Customer Login(string Email, String Password);
-        public void AddCustomer(Customer cartoon);
-        public void UpdateCustomer(Customer cartoon);
-        public void DeleteCustomer(int CustomerID);
+        void SaveCustomer(Customer c);
+        public void UpdateCustomer(Customer customer);
+        public void DeleteCustomer(Customer CustomerId);
     }
 }

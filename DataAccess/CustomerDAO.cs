@@ -1,92 +1,24 @@
 ﻿using BusinessObject;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace DataAccessObject
 {
     public class CustomerDAO
     {
+        SqlConnection connection;
+        SqlCommand command;
         private static CustomerDAO instance = null;
         private static object instanceLook = new object();
-        public List<Customer> GetCustomersList => customers;
-
-
-
-
-
-        // Initialize CustomerList
-        private static List<Customer> customers = new List<Customer>
-        {
-            new Customer()
-            {
-                CustomerId = 1,
-                CustomerName=""
-            }
-        };
-
-
-
-        public Customer Login(string providedEmail, string providedPassword)
-        {
-            IConfiguration config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .Build();
-
-            string emailFromConfig = config["AdminAccount:Email"];
-            string passwordFromConfig = config["AdminAccount:Password"];
-
-            if (providedEmail.Equals(emailFromConfig) && providedPassword.Equals(passwordFromConfig))
-            {
-                // Login successful, create and return a Customer object
-                return new Customer
-                {
-                    CustomerId = 1,
-                    CustomerName = "Admin"
-                };
-            }
-            // Login failed, return null
-            return null;
-        }
-
-
-
-        // GetCustomer
-        public Customer GetCustomer(int CustomerId)
-        {
-            return customers.SingleOrDefault(mb => mb.CustomerId == CustomerId);
-        }
-        public Customer GetCustomer(string ShortDescription)
-        {
-            return customers.SingleOrDefault(mb => mb.CustomerName.Equals(ShortDescription));
-        }
-
-        public static List<Customer> GetProducts()
-        {
-            var customers = new List<Customer>();
-            try
-            {
-                using var db = new FUCarRentingManagementContext();
-                customers = db.Customers.ToList();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-            return customers;
-        }
-
-
-
-
-
-
 
 
         public static CustomerDAO Instance
@@ -104,65 +36,163 @@ namespace DataAccessObject
             }
         }
 
-        public void AddCustomer(Customer customer)
+        private string GetConnectionString()
         {
-            if (customer == null)
-            {
-                throw new Exception("Customer is undefined!!");
-            }
-
-            if (GetCustomer(customer.CustomerId) == null && GetCustomer(customer.CustomerName) == null)
-            {
-                customers.Add(customer);
-            }
-            else
-            {
-                throw new Exception("Customer is existed!!");
-            }
-        }
-        public void Update(Customer customer)
-        {
-            if (customer == null)
-            {
-                throw new Exception("Customer is undefined!!");
-            }
-            Customer cus = GetCustomer(customer.CustomerId);
-            if (cus != null)
-            {
-                var index = customers.IndexOf(cus);
-                customers[index] = customer;
-            }
-            else
-            {
-                throw new Exception("Customer does not exist!!");
-            }
+            IConfiguration config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+            return config["ConnectionStrings:DB"];
         }
 
-        public static void UpdateProduct(Customer customer)
+        public Customer Login(string providedEmail, string providedPassword)
         {
+            IConfiguration config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .Build();
+
+            string emailFromConfig = config["AdminAccount:Email"];
+            string passwordFromConfig = config["AdminAccount:Password"];
+            string roleFromConfig = config["AdminAccount:Role"];
+
+            if (providedEmail.Equals(emailFromConfig) && providedPassword.Equals(passwordFromConfig))
+            {
+                // Login successful, create and return a Customer object
+                return new Customer
+                {
+                    CustomerId = 1,
+                    CustomerName = "Admin"
+                };
+            }
+            // Login failed, return null
+            return null;
+        }
+
+        public List<Customer> GetCustomerList()
+        {
+            var listCustomers = new List<Customer>
+            {
+            new Customer()
+            {
+                CustomerId = 1,
+                CustomerName=""
+            }
+        };
             try
             {
-                using var db = new FUCarRentingManagementContext();
-                db.Entry<Customer>(customer).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                db.SaveChanges();
+                connection = new SqlConnection(GetConnectionString());
+                string sqlCommand = "SELECT * FROM Customer";
+                command = new SqlCommand(sqlCommand, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection); // Connected Data Access
+                if (reader.HasRows == true)
+                {
+                    while (reader.Read())
+                    {
+                        Customer productTemp =
+                            new Customer()
+                            {
+                                CustomerId = reader.GetInt32("CustomerID"),
+                                CustomerName = reader.GetString("CustomerName"),
+                                Telephone = reader.GetString("Telephone"),
+                                Email = reader.GetString("Email"),
+                                CustomerBirthday = reader.GetDateTime("CustomerBirthday"),
+                                CustomerStatus = reader.GetByte("CustomerStatus"),
+                                Password = reader.GetString("Password"),
+                            };
+                        listCustomers.Add(productTemp);
+                    }
+                }
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
+            finally
+            {
+                connection.Close();
+            }
+
+            return listCustomers;
         }
 
 
-        public void Delete(int CustomerId)
+
+        public void SaveCustomer(Customer c)
         {
-            Customer customer = GetCustomer(CustomerId);
-            if (customer != null)
+            connection = new SqlConnection(GetConnectionString());
+            command = new SqlCommand("INSERT INTO Customer(CustomerName, Telephone, Email, CustomerBirthday, CustomerStatus) " +
+                "values(@CustomerName, @Telephone, @Email, @CustomerBirthday, @CustomerStatus)", connection);
+
+            command.Parameters.Add("@CustomerName", SqlDbType.NVarChar).Value = c.CustomerName;
+            command.Parameters.Add("@Telephone", SqlDbType.NVarChar).Value = c.Telephone;
+            command.Parameters.Add("@Email", SqlDbType.NVarChar).Value = c.Email;
+            command.Parameters.Add("@CustomerBirthday", SqlDbType.Date).Value = c.CustomerBirthday;
+            command.Parameters.Add("@CustomerStatus", SqlDbType.TinyInt).Value = c.CustomerStatus;
+            try
             {
-                customers.Remove(customer);
+                connection.Open();
+                command.ExecuteNonQuery();
             }
-            else
+            catch (Exception e)
             {
-                throw new Exception("Customer does not exist!!");
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public void UpdateCustomer(Customer c)
+        {
+            connection = new SqlConnection(GetConnectionString());
+            string sql = "UPDATE Customers SET CustomerName=@CustomerName, Telephone=@Telephone, " +
+                "Email=@Email, CustomerBirthday=@CustomerBirthday, CustomerStatus=@CustomerStatus WHERE CustomerID=@CustomerId";
+
+            command = new SqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@CustomerName", c.CustomerName);
+            command.Parameters.AddWithValue("@Telephone", c.Telephone);
+            command.Parameters.AddWithValue("@Email", c.Email);
+            command.Parameters.AddWithValue("@CustomerBirthday", c.CustomerBirthday);
+            command.Parameters.AddWithValue("@CustomerStatus", c.CustomerStatus);
+            command.Parameters.AddWithValue("@CustomerId", c.CustomerId);
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        public void DeleteCustomer(Customer c)
+        {
+            connection = new SqlConnection(GetConnectionString());
+            string sql = "DELETE Customer WHERE CustomerID=@CustomerId";
+
+            command = new SqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@CustomerId", c.CustomerId);
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }
